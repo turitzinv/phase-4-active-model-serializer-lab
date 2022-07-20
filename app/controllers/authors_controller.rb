@@ -11,6 +11,11 @@ class AuthorsController < ApplicationController
     render json: author
   end
 
+  def posts
+    authors = Author.all
+    render json: authors, each_serializer: AuthorPostSerializer
+  end
+
   private
 
   def render_not_found_response
